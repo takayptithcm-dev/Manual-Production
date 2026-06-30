@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Outfit", "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@media print {
+  @page {
+    margin: 0;
+    size: A4 landscape;
+  }
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    background: white !important;
+  }
+  
+  /* Hide header and other non-printable elements */
+  header, 
+  button,
+  .no-print {
+    display: none !important;
+  }
+
+  /* Reset margins and paddings for printing */
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+
+  /* Ensure the manual takes full width and removes shadows/borders */
+  .printable-manual {
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  .printable-container, 
+  .printable-page-wrapper {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .printable-page {
+    page-break-after: always;
+    break-after: page;
+    page-break-inside: auto;
+    break-inside: auto;
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 !important;
+    width: 1123px !important;
+    min-height: 794px !important;
+    height: auto !important;
+  }
+
+  .printable-page:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  .pdf-avoid-break {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
